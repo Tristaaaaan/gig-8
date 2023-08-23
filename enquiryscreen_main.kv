@@ -1,0 +1,116 @@
+#main.kv
+<MainScreen>:
+    name: 'main'
+    md_bg_color: 1, 1, 1, 1
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            title: 'Admission Enquiry'
+            #left_action_items: [["menu", lambda x: None]]
+            right_action_items: [["logout", lambda x: root.logout(x)]]
+            elevation: 5
+        MDBoxLayout:
+            orientation: 'vertical'
+            height: '30dp'
+            #spacing: '15dp'
+            #padding: '50dp'
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: '100dp'
+                padding: '82dp'
+                #spacing: 'dp'
+                pos_hint: {'center_x': 0.5}
+                MDLabel:
+                    text: 'Welcome:'
+                    #halign: 'center'
+                    #font_style: 'H5'
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+                MDLabel:
+                    id: username_label
+                    text: root.username
+                    color: (1, 0, 0, 1)
+                    bold: True
+                    halign: 'center'
+                    #font_style: 'H5'
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                #padding: '1dp'
+                height: dp(5)
+                size_hint_y: None
+                pos_hint: {'center_x': 0.6}
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(50)
+                    #MDLabel:
+                        #text: 'Enquiry:'
+
+                    MDLabel:
+                        id: enquiry_count_label
+                        text: f"Enquiry: {root.enquiry_count}"
+                        color: 0, 0, 1, 1
+
+
+                    #MDLabel:
+                        #text: 'Interested:'
+
+                    MDLabel:
+                        id: interested_count_label
+                        text: f"Interested: {root.interested_count}"
+                        color: 0, 0, 1, 1
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(50)
+                    #MDLabel:
+                        #text: 'Confirm:'
+
+                    MDLabel:
+                        id: confirm_count_label
+                        text: f"Confirm: {root.confirm_count}"
+                        color: 0, 0, 1, 1
+
+
+                    #MDLabel:
+                        #text: 'rejected:'
+                        #pos_hint: {'center_x': 0.5}
+
+                    MDLabel:
+                        id: rejected_count_label
+                        text: f"Rejected: {root.rejected_count}"
+                        #pos_hint: {'center_x': 0.5}
+                        color: 0, 0, 1, 1
+
+
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                #size_hint_y: None
+                spacing: '20dp'
+                padding: '120dp'
+                #height: self.minimum_height
+                MDRaisedButton:
+                    text: 'Enquiry Form'
+                    icon: 'form-textbox'
+                    pos_hint: {'center_x': 0.5}
+                    on_release: app.root.current = 'enquiry_form'
+                MDRaisedButton:
+                    text: 'Enquiry List'
+                    icon: 'view-list'
+                    pos_hint: {'center_x': 0.5}
+                    on_release: app.root.current = 'enquiry_list'
+
+        MDTopAppBar:
+            title: 'Guru Drona School, Raigarh'
+            #pos_hint: {"top": 1}
+            #left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'main')]]
+            elevation: 10
+

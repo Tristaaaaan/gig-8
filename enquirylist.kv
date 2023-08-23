@@ -1,0 +1,113 @@
+<ChatListItem>:
+    #IconLeftWidget:
+        #icon: "check"
+
+
+<EnquiryListScreen>:
+    #parents_name: []
+    BoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Enquiry List'
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'main')]]
+        MDTabs:
+            Tab:
+                title: "Enquiries"
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    ScrollView:
+                        size_hint: 15, None         #for width size
+                        height: root.height * 0.87
+                        effect_cls: 'ScrollEffect'
+                        bar_width: 0              # hide the scrollbar
+
+                        MDList:
+                            id: enquiries_list
+                            size_hint_y: None
+                            height: self.minimum_height
+                            BoxLayout:
+                                id: enquiry
+                                orientation: 'vertical'
+                                size_hint_y: None
+
+                                #size_hint_x: 1
+
+                                MDList:
+                                    id: enquiries_list_inner
+                                    size_hint_y: None
+                                    height: self.minimum_height
+
+
+
+
+
+            Tab:
+                title: "Interested"
+                BoxLayout:
+                    orientation: 'vertical'
+                    ScrollView:
+                        size_hint: 15, None
+                        height: root.height * 0.87
+                        effect_cls: 'ScrollEffect'
+                        bar_width: 0
+                        MDList:
+                            id: interested_list
+                            size_hint_y: None
+                            height: self.minimum_height
+                            BoxLayout:
+                                id: enquiry
+                                orientation: 'vertical'
+                                size_hint_y: None
+
+                                MDList:
+                                    id: interested_list_inner
+                                    size_hint_y: None
+                                    height: self.minimum_height
+            Tab:
+                title: "Confirm"
+                BoxLayout:
+                    orientation: 'vertical'
+                    ScrollView:
+                        size_hint: 15, None
+                        height: root.height * 0.87
+                        effect_cls: 'ScrollEffect'
+                        bar_width: 0
+                        MDList:
+                            id: confirm_list
+                            size_hint_y: None
+                            height: self.minimum_height
+                            BoxLayout:
+                                id: enquiry
+                                orientation: 'vertical'
+                                size_hint_y: None
+
+                                MDList:
+                                    id: confirm_list_inner
+                                    size_hint_y: None
+                                    height: self.minimum_height
+
+            Tab:
+                title: "Rejected"
+                BoxLayout:
+                    orientation: 'vertical'
+                    ScrollView:
+                        size_hint: 15, None
+                        height: root.height * 0.87
+                        effect_cls: 'ScrollEffect'
+                        bar_width: 0
+                        MDList:
+                            id: rejected_list
+                            size_hint_y: None
+                            height: self.minimum_height
+                            BoxLayout:
+                                id: enquiry
+                                orientation: 'vertical'
+                                size_hint_y: None
+
+                                MDList:
+                                    id: rejected_list_inner
+                                    size_hint_y: None
+                                    height: self.minimum_height

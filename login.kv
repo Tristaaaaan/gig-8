@@ -1,0 +1,128 @@
+<LoginScreen>:
+    #username: username_input
+    #password: password_input
+    #remember_checkbox: remember_checkbox
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            title: 'ADMISSION ENQUIRY'
+            pos_hint: {"top": 1}
+            left_action_items: [["menu", lambda x: None]]
+            elevation: 5
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
+            padding: dp(5)
+            MDLabel:
+                text: 'Enter your login information:'
+                size_hint_x: 0.8
+                pos_hint: {'center_x': 0.5}
+                #font_style: 'H6'
+                #size_hint_y: None
+                #height: self.texture_size[1]
+
+
+            MDTextField:
+                id: username
+                hint_text: 'Username'
+                required: True
+                size_hint_x: 0.9
+                mode: 'rectangle'
+                icon_right: "account"
+                pos_hint: {'center_x': 0.5}
+                #color_active: [0,0,0,0]  # blue color
+
+            MDTextField:
+                id: password
+                hint_text: 'Password'
+                password: True
+                required: True
+                size_hint_x: 0.9
+                pos_hint: {'center_x': 0.5}
+                icon_right: "key-variant"
+                mode: 'rectangle'
+                #color_active: [0,0,1,1]  # blue color
+
+            #MDCheckbox:
+                #id: remember_checkbox
+                #size_hint_x: 0.9
+                #pos_hint: {'center_x': 0.5}
+                #active: False
+                #size_hint_y: None
+                #height: self.texture_size[1]
+
+            MDRaisedButton:
+                text: 'Login'
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5}
+                on_press: root.verify_credentials()
+            MDRaisedButton:
+                text: 'Signup'
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5}
+                on_press: root.manager.current = 'signup'
+
+            MDLabel:
+                id: 'dummy'
+                size_hint_x: 0.8
+                pos_hint: {'center_x': 0.5}
+
+        MDTopAppBar:
+            title: 'Guru Drona School, Raigarh'
+            #pos_hint: {"top": 1}
+            #left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'main')]]
+            elevation: 10
+
+<SignupScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'Sign Up'
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'login')]]
+            elevation: 5
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
+            padding: dp(5)
+            MDLabel:
+                text: 'Enter your Credential:'
+                size_hint_x: 0.8
+                pos_hint: {'center_x': 0.5}
+            MDTextField:
+                id: username
+                hint_text: 'Username'
+                required: True
+                size_hint_x: 0.9
+                icon_right: "account"
+                mode: 'rectangle'
+                pos_hint: {'center_x': 0.5}
+
+            MDTextField:
+                id: full_name
+                hint_text: 'Full Name'
+                required: True
+                size_hint_x: 0.9
+                icon_right: "account"
+                mode: 'rectangle'
+                pos_hint: {'center_x': 0.5}
+            MDTextField:
+                id: password
+                hint_text: 'Password'
+                password: True
+                required: True
+                size_hint_x: 0.9
+                icon_right: "key-variant"
+                mode: 'rectangle'
+                pos_hint: {'center_x': 0.5}
+            MDRaisedButton:
+                text: 'Signup'
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5}
+                on_press: root.signup()
+
+            MDLabel:
+                id: 'dummy'
+                size_hint_x: 0.8
+                pos_hint: {'center_x': 0.5}
